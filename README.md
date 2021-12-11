@@ -1,7 +1,10 @@
 [![CircleCI](https://circleci.com/gh/ResultadosDigitais/bigtable-autoscaler-operator.svg?style=svg)](https://circleci.com/gh/ResultadosDigitais/bigtable-autoscaler-operator)
 [![GitHub release](https://img.shields.io/github/v/release/ResultadosDigitais/bigtable-autoscaler-operator.svg)](https://github.com/ResultadosDigitais/bigtable-autoscaler-operator/releases/latest)
 
-# Bigtable Autoscaler Operator 
+# Deprecation Node
+Fortunately, Google's Cloud Bigtable now has native support for autoscaling, making this repository obsolete
+
+# Bigtable Autoscaler Operator
 **Bigtable Autoscaler Operator** is a [Kubernetes Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) to autoscale the number of nodes of a [Google Cloud Bigtable](https://cloud.google.com/bigtable) instance based on the CPU utilization.
 
 - [Bigtable Autoscaler Operator](#bigtable-autoscaler-operator)
@@ -39,7 +42,7 @@ Create a k8s secret with your service account:
 ```sh
 $ kubectl create secret generic bigtable-autoscaler-service-account --from-file=service-account=./your_service_account.json
 ```
-    
+
 Create an autoscaling manifest:
 ```yml
 # my-autoscaler.yml
@@ -83,19 +86,19 @@ $ kubectl get bigtableautoscalers
     ```
 
 ## Development environment
-These are the steps for setting up the development environment. 
+These are the steps for setting up the development environment.
 
 This project is using go version 1.13 and other tools with its respective version, we don't guarantee that using other versions can perform successful builds.
 
-1. Install [kubebuilder](https://book.kubebuilder.io/quick-start.html#installation) version 2.3.2. 
-    1. Also make sure that you have its dependencies installed: [controller-gen](https://github.com/kubernetes-sigs/controller-tools/) version 0.5.0 and [kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/) version 3.10.0 
+1. Install [kubebuilder](https://book.kubebuilder.io/quick-start.html#installation) version 2.3.2.
+    1. Also make sure that you have its dependencies installed: [controller-gen](https://github.com/kubernetes-sigs/controller-tools/) version 0.5.0 and [kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/) version 3.10.0
 
 1. Follow [Option 1](#option-1) or [Option 2](#option-2) section.
 
 ### Option 1: Run with Tilt (recomended)
 Tilt is tool to automate development cycle and has features like hot deploy.
 
-1. Install tilt version 0.19.0 (follow the [official instructions](https://docs.tilt.dev/install.html)). 
+1. Install tilt version 0.19.0 (follow the [official instructions](https://docs.tilt.dev/install.html)).
    1. Install its dependencies: ctlptl and kind (or other tool to create local k8s clusters) as instructed.
 1. If it doesn't exist, create your k8s cluster using ctlptl
 
@@ -166,7 +169,7 @@ Running manually requires some extra steps!
 go test ./... -v
 ```
  or
- 
+
 ```sh
 gotestsum
 ```
